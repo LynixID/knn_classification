@@ -50,7 +50,7 @@ if uploaded_file:
     acc = accuracy_score(y_test, y_pred)
     st.success(f"✅ Akurasi Model: {acc:.2f}")
 
-    # Mapping label ramah pengguna (dengan Bahasa Indonesia)
+    # Mapping label ramah pengguna (Bahasa Indonesia)
     label_map_display = {
         "gender": {
             0: "0 (Laki-laki)",
@@ -87,7 +87,7 @@ if uploaded_file:
         for col in X.columns:
             if col in label_map_display:
                 options = list(label_map_display[col].values())
-                selected = st.selectbox(f"{col} (dalam kurung: Bahasa Indonesia)", options)
+                selected = st.selectbox(f"{col}", options)
                 val = label_map_reverse[col][selected]
             elif df[col].nunique() <= 10:
                 val = st.selectbox(f"{col}", sorted(df[col].unique()))
